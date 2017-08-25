@@ -32,3 +32,9 @@ class ExportUOM(models.Model):
         required=True,
         string='Description',
     )
+
+    @api.model
+    def name_search(self, name, args=None, operator='ilike', limit=100):
+        if name and not args:
+            args = ['|', ('code', operator, name)]
+        return super(ExportUOM, self).name_search(name, args, operator, limit)

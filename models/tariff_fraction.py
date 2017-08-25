@@ -31,3 +31,9 @@ class TariffFraction(models.Model):
         index=True,
         required=True,
     )
+
+    @api.model
+    def name_search(self, name, args=None, operator='ilike', limit=100):
+        if name and not args:
+            args = ['|', ('code', operator, name)]
+        return super(TariffFraction, self).name_search(name, args, operator, limit)
