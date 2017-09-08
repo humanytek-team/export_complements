@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<openerp>
+<odoo>
     <data>
         <!-- Inherit Form view -->
         <record model="ir.ui.view" id="export_complements_product_template_form">
             <field name="name">export_complements.product.template.form</field>
             <field name="model">product.template</field>
-            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="inherit_id" ref="stock.view_template_property_form"/>
             <field name="arch" type="xml">
-                <field name="mes_type" position="after">
-                    <field name="tariff_fraction"/>
-                    <field name="export_oum"/>
-                </field>
+                <group name="sale_condition" position="after">
+                    <group name="export_complements" string="Export Complements">
+                        <field name="tariff_fraction"/>
+                        <field name="export_oum"/>
+                    </group>
+                </group>
             </field>
         </record>
     </data>
-</openerp>
+</odoo>

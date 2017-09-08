@@ -24,7 +24,7 @@
     'author': 'Humanytek',
     'website': 'http://humanytek.com',
     'depends': [
-        'product',
+        'stock',
     ],
     'data': [
         'data/export_uom.xml',
